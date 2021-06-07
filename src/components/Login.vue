@@ -1,14 +1,47 @@
 <template>
     <div class="login_container">
       <div class="login_box">
+         <!--头像区域-->
         <div class="avatar_box">
           <img src="../assets/logo.png">
         </div>
+        <!--登录表单区域-->
+      <el-form  :model="loginForm" :rules="loginFormRules" label-width="0px" class="login_form">
+        <el-form-item prop="username">
+          <el-input v-model="loginForm.username"  prefix-icon="el-icon-user"></el-input>
+        </el-form-item>
+         <el-form-item prop="password">
+          <el-input v-model="loginForm.password" prefix-icon="el-icon-user-solid" type="password"></el-input>
+        </el-form-item>
+         <el-form-item class="btns">
+           <el-button type="primary">登录</el-button>
+           <el-button type="info">重置</el-button>
+        </el-form-item>
+        </el-form>
       </div>
     </div>
 </template>
 <script>
-export default {}
+export default {
+  data () {
+    return {
+      loginForm: {
+        username: 'zs',
+        password: '123'
+      },
+      loginFormRules: {
+        username: [
+          { required: true, message: '请输入登录名称', trigger: 'blur' },
+          { min: 3, max: 10, message: '长度在3-10个字符', trigger: 'blur' }
+        ],
+        password: [
+          { required: true, message: '请输入登录密码', trigger: 'blur' },
+          { min: 6, max: 15, message: '长度在6-15个字符', trigger: 'blur' }
+        ]
+      }
+    }
+  }
+}
 </script>
 
 <style Lang="less" scoped>
@@ -42,5 +75,16 @@ export default {}
        height: 100%;
        border-radius: 50%;
        background-color: #eee;
+   }
+   .btns{
+     display: flex;
+     justify-content:flex-end;
+   }
+   .login_form{
+     position: absolute;
+     bottom:0;
+     width: 100%;
+     padding:  0 20px;
+     box-sizing: border-box;
    }
 </style>
