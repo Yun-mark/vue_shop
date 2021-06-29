@@ -11,7 +11,6 @@
         <el-col :span="7">
                     <!--搜索添加-->
           <el-input placeholder="请输入内容" v-model="queryInfo.query" clearable @clear="getUserList">
-            <el-select v-model="select" slot="prepend" placeholder="请选择"></el-select>
             <el-button slot="append" icon="el-icon-search" @click="getUserList"></el-button>
           </el-input>
         </el-col>
