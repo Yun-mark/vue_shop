@@ -257,7 +257,7 @@ export default {
       this.editDialogVisble = true
     },
     editDialogClosed() {
-      this.$$refs.editFormRef.resetFields()
+      this.$refs.editFormRef.resetFields()
     },
     editUserInfo() {
       this.$refs.editFormRef.validate(async valid => {
